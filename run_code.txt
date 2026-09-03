@@ -1,0 +1,7 @@
+ python .\bin\test.py --model_path D:\densenet_eca\final_label_eca_adam_224\ --in_csv_path "D:\densenet_eca\Dataset_original_test_val\test_labels.csv" --out_csv_path D:\densenet_eca\dense_eca\test\pred.csv --device_ids "0"
+
+  python .\bin\roc.py dev_eval --pred_csv_path D:\densenet_eca\dense_eca\test\pred.csv --true_csv_path "D:\densenet_eca\Dataset_original_test_val\test_labels.csv" --plot_path "D:\densenet_eca\dense_eca\test"
+
+  python .\bin\confusion_metric_1.py dev_eval  --pred_csv_path  D:\densenet_eca\dense_eca\test\pred.csv --true_csv_path "D:\densenet_eca\Dataset_original_test_val\test_labels.csv" --out_path "D:\densenet_eca\dense_eca\test\" --prob_thred 0.5
+
+  (venv) PS D:\densenet_eca\final_label_eca_adam_224\classification> uvicorn backend.main:app --reload
